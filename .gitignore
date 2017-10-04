@@ -36,3 +36,5 @@ proguard/
 .idea/libraries/support_core_utils_26_1_0.xml
 AnimationsTransitions.iml
 projectFilesBackup/
+.idea/workspace.xml
+app/libs/
