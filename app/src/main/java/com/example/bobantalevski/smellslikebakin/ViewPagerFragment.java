@@ -9,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 /**
  * Created by Boban Talevski on 10/8/2017.
@@ -27,7 +26,15 @@ public class ViewPagerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_viewpager, container, false);
 
         final IngredientsFragment ingredientsFragment = new IngredientsFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(KEY_RECIPE_INDEX, index);
+        ingredientsFragment.setArguments(bundle);
         final DirectionsFragment directionsFragment = new DirectionsFragment();
+        // probably not needed to initialize a new bundle, we just set the same bundle
+        // as arguments to the directionsFragment
+//        bundle = new Bundle();
+//        bundle.putInt(KEY_RECIPE_INDEX, index);
+        directionsFragment.setArguments(bundle);
 
         ViewPager viewPager = view.findViewById(R.id.viewPager);
         viewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
